@@ -11,6 +11,7 @@ void setup() {
 void loop() {
   
   updateSensor();
+  monitorStatus();
 
   if(faseSaatIni != PEMADAMAN) {
     if(terdeteksiApi()) {
@@ -33,3 +34,6 @@ void loop() {
     }
   }
 }
+
+// TODOS
+// Harus ada fungsi kalibrasi sebelum updateValue Sensor
