@@ -7,3 +7,29 @@ void setup() {
   pinMode(PIN_KIPAS, INPUT);
   pinMode(PIN_BUZZER, OUTPUT);
 }
+
+void loop() {
+  
+  updateSensor();
+
+  if(faseSaatIni != PEMADAMAN) {
+    if(terdeteksiApi()) {
+      faseSaatIni = KALIBRASI;
+    } else {
+      faseSaatIni = EKSPLORASI;
+    }
+  }
+
+  switch(faseSaatIni) {
+    case PEMADAMAN: {
+      fasePemadaman();
+    }
+    case KALIBRASI: {
+      faseKalibrasi();
+    }
+    case EKSPLORASI:
+    default: {
+      faseEksplorasi();
+    }
+  }
+}

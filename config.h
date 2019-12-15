@@ -24,6 +24,33 @@ NewPing SONAR_TENGAH(PENERIMA_SINYAL_TENGAH, PENGIRIM_SINYAL_TENGAH, JARAK_MAKSI
 #define PENERIMA_SINYAL_KANAN 7
 NewPing SONAR_KANAN(PENERIMA_SINYAL_KANAN, PENGIRIM_SINYAL_KANAN, JARAK_MAKSIMUM_SENSOR_ULTRASONIK);
 
-#define RODA_MAX_SPEED 400
-#define RODA_AVG_SPEED 200
-#define RODA_MIN_SPEED 90
+#define RODA_KIRI_MAX_SPEED 500
+#define RODA_KIRI_AVG_SPEED 300
+#define RODA_KIRI_MIN_SPEED 50
+
+#define RODA_KANAN_MAX_SPEED -500
+#define RODA_KANAN_AVG_SPEED -300
+#define RODA_KANAN_MIN_SPEED -50
+
+#define BATAS_SENSOR_MENDETEKSI_API 700
+
+#define KALIBRASI_DERAJAT 4
+#define RADIUS_DERAJAT_PEMADAMAN 80
+
+int valSensorKiri   = 0; 
+int valSensorDepan  = 0;
+int valSensorKanan  = 0;
+int valSensorWarna  = 0;
+int valSensorApi1   = 0;
+int valSensorApi2   = 0;
+int valSensorApi3   = 0;
+int valSensorApi4   = 0;
+int valSensorApi5   = 0;
+
+enum Fase {
+  EKSPLORASI,
+  KALIBRASI,
+  PEMADAMAN
+};
+
+Fase faseSaatIni = EKSPLORASI;
